@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<!-- Exam exam = new gonExam() -->
+	<bean id="exam" class="di.entity.gonExam" p:kor="1" p:eng="2"/>
+<!-- 		<property name="kor"> -->
+<!-- 			<value>10</value> -->
+<!-- 		</property> -->
+<!-- 		<property name="kor" value="10"></property> -->
+
+<!-- 		<property index="0" value="10"></property> -->
+<!-- 		<constructor-arg index="1" value="10"/> -->
+	<!-- ExamConsole con = new GridExamConsole() -->
+	<bean id="con" class="di.ui.InlineExamConsole">
+		<!-- con.setExam(exam) -->
+		<property name="exam" ref="exam"/>
+	</bean>
+	
+	<util:list id="exams" list-class="java.util.ArrayList">
+		<bean class="di.entity.gonExam" p:kor="10" p:eng="20"/>
+		<ref bean="exam"/>
+	</util:list>
+<!-- 	<bean id="exams" class="java.util.ArrayList"> -->
+<!-- 		<constructor-arg> -->
+<!-- 			<list> -->
+<!-- 				<bean class="di.entity.gonExam" p:kor="10" p:eng="20"/> -->
+<!-- 				<ref bean="exam"/> -->
+<!-- 			</list> -->
+<!-- 		</constructor-arg> -->
+<!-- 	</bean> -->
+</beans>
