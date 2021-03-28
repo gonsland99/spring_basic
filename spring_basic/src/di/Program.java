@@ -19,16 +19,16 @@ public class Program {
 		*/
 		ApplicationContext context = new ClassPathXmlApplicationContext("di/setting.xml");
 		
-		//ExamConsole con = (ExamConsole) context.getBean("con");
-		Exam exam = context.getBean(Exam.class);
-		System.out.println(exam.toString());
-		ExamConsole con = context.getBean(ExamConsole.class);
+		ExamConsole con = (ExamConsole) context.getBean("con");
+		//Exam exam = context.getBean(Exam.class);
+		//System.out.println(exam.toString());
+		//ExamConsole con = context.getBean(ExamConsole.class);
 		con.print();
-		System.out.println();
+		//System.out.println();
 		
-		List<Exam> exams = (List<Exam>) context.getBean("exams");
+//		List<Exam> exams = (List<Exam>) context.getBean("exams");
 //		exams.add(new gonExam(1,2,3,4));
-		for(Exam e : exams)
-			System.out.println(e);
+//		for(Exam e : exams)
+//			System.out.println(e);
 	}
 }
